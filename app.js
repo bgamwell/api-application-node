@@ -34,12 +34,12 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/views/index.html');
 });
 
-app.get("/users", function(req, res) {
+app.get("/api/users", function(req, res) {
   res.json(users);
 });
 
 // gets a specific user by id passed in as a URL param
-app.get("/users/:id", function (req, res) {
+app.get("/api/users/:id", function (req, res) {
 
   var targetID = parseInt(req.params.id); // parseInt turns a string into an integer
   var foundUser = _.findWhere(users, { id: targetID });
@@ -48,7 +48,7 @@ app.get("/users/:id", function (req, res) {
 });
 
 // creating a post request to create a new user
-app.post("/users", function(req, res) {
+app.post("/api/users", function(req, res) {
   var newUser = req.body; // represents the body of the post request
   users.push(newUser);
 
@@ -58,7 +58,7 @@ app.post("/users", function(req, res) {
 
 // create functionality for a form to update users
 
-app.put("/users/:id", function (req, res) {
+app.put("/api/users/:id", function (req, res) {
 
   var targetID = parseInt(req.params.id); // parseInt turns a string into an integer
   var foundUser = _.findWhere(users, { id: targetID });
@@ -72,7 +72,7 @@ app.put("/users/:id", function (req, res) {
 });
 
 // create delete functionality - how do you make a delete on the back extended
-app.delete("/users/:id", function (req, res) {
+app.delete("/api/users/:id", function (req, res) {
   var targetID = parseInt(req.params.id);
   var foundUser = _.findWhere(users, {id: targetID });
 

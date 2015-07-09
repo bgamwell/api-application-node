@@ -2,7 +2,7 @@ $( document ).ready(function() {
     console.log( "ready!" );
 
     $.ajax({
-  		url: "/users",
+  		url: "/api/users",
   		type: "GET",
   		success: function(user) {
   			var template = _.template($("#users-template").html()); // this commands to render the script as html
